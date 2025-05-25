@@ -1,0 +1,130 @@
+/* --- ESTILOS PRINCIPALES DEL CONTENEDOR DEL FORMULARIO --- */
+.register-container {
+    max-width: 500px;
+    margin: 80px auto; /* Espacio superior para no chocar con el header */
+    padding: 40px;
+    background-color: var(--secondary-color); /* Blanco */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.register-container h2 {
+    color: var(--primary-color); /* Azul Profundo */
+    margin-bottom: 30px;
+    font-size: 2.2rem;
+}
+
+/* --- ESTILOS PARA LOS GRUPOS DE FORMULARIO (LABEL + INPUT/ICONO) --- */
+.form-group {
+    margin-bottom: 20px; /* Espacio entre cada campo del formulario */
+    text-align: left;
+}
+
+/* Ocultar visualmente las etiquetas (labels) para accesibilidad (SR = Screen Reader) */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap; /* Evita que el texto salte de línea */
+    border: 0;
+}
+
+/* --- ESTILOS PARA EL NUEVO CONTENEDOR DE INPUTS CON ICONOS --- */
+.input-icon-group {
+    display: flex; /* Habilita Flexbox para alinear el icono y el input en una fila */
+    align-items: center; /* Alinea los elementos verticalmente al centro */
+    border: 1px solid var(--gray-medium); /* Borde para el grupo completo */
+    border-radius: 5px; /* Bordes redondeados para el grupo */
+    padding: 8px 15px; /* Espaciado interno del grupo */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    transition: all 0.3s ease; /* Transición suave para el efecto de foco */
+}
+
+/* Estilos de enfoque para el grupo cuando un input dentro de él está enfocado */
+.input-icon-group:focus-within {
+    border-color: var(--accent-color); /* Cambia el color del borde */
+    box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.2); /* Sombra para el efecto de foco */
+}
+
+/* --- ESTILOS PARA LOS ICONOS DENTRO DE LOS INPUTS --- */
+.icon-prefix {
+    color: var(--accent-color); /* Color del icono, puedes ajustarlo */
+    margin-right: 10px; /* Espacio entre el icono y el texto del input */
+    font-size: 1.2rem; /* Tamaño del icono */
+    min-width: 20px; /* Asegura un ancho mínimo para el icono */
+    text-align: center;
+}
+
+/* --- ESTILOS PARA LOS CAMPOS INPUT DENTRO DEL GRUPO --- */
+.input-icon-group input[type="text"],
+.input-icon-group input[type="password"],
+.input-icon-group input[type="email"],
+.input-icon-group input[type="tel"] {
+    flex-grow: 1; /* Permite que el input ocupe todo el espacio restante */
+    border: none; /* Elimina el borde individual del input (el borde lo tiene el grupo) */
+    outline: none; /* Elimina el contorno azul/negro al enfocar */
+    padding: 0; /* Elimina el padding original del input (el padding lo tiene el grupo) */
+    font-size: 1rem; /* Asegura que el tamaño de fuente se mantenga */
+    background-color: transparent; /* Fondo transparente para que el color de fondo del grupo sea visible */
+    height: 30px; /* Altura del campo de entrada */
+    color: var(--text-color); /* Color del texto del input */
+}
+
+/* Estilos para el placeholder */
+.input-icon-group input::placeholder {
+    color: var(--gray-medium); /* Color del texto del placeholder */
+    opacity: 1; /* Asegura que el placeholder no sea transparente en algunos navegadores */
+}
+
+/* --- ESTILOS PARA LOS MENSAJES DE ÉXITO/ERROR --- */
+.message {
+    margin-top: 20px;
+    margin-bottom: 20px; /* Añadido para espacio debajo si es un mensaje inicial */
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.success {
+    background-color: #d4edda; /* Verde claro */
+    color: #155724; /* Verde oscuro */
+    border: 1px solid #c3e6cb;
+}
+
+.error {
+    background-color: #f8d7da; /* Rojo claro */
+    color: #721c24; /* Rojo oscuro */
+    border: 1px solid #f5c6cb;
+}
+
+/* --- ESTILOS PARA EL BOTÓN DE REGISTRO --- */
+/* (Asegúrate de que estas clases 'btn' y 'btn-primary' estén definidas
+   en tu styles.css principal para consistencia. Si no, defínelas aquí
+   o asegúrate de que existan en tu styles.css y sean importadas ANTES.) */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--primary-color); /* Azul Profundo */
+    color: var(--secondary-color); /* Blanco */
+}
+
+.btn-primary:hover {
+    background-color: #004085; /* Un azul ligeramente más oscuro al pasar el ratón */
+    transform: translateY(-2px); /* Pequeño efecto de elevación */
+}

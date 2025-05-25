@@ -1,0 +1,597 @@
+/* Importar fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Montserrat:wght@400;700&display=swap');
+
+/* Variables CSS para la nueva paleta de colores llamativa y agradable */
+:root {
+    --primary-color: #2C3E50; /* Azul Profundo (Casi Medianoche) */
+    --secondary-color: #FFFFFF; /* Blanco Puro */
+    --light-color: #F0F4F8; /* Gris Claro Suave */
+    --gray-medium: #AAB7C3; /* Gris Medio */
+    --accent-color: #FFC107; /* Amarillo Dorado */
+    --turquoise-accent: #20C997; /* Verde Turquesa (opcional) */
+    --text-color: #343A40; /* Gris Oscuro para el texto general */
+    --footer-bg-color: #343A40; /* Un tono más claro para el footer */
+    --footer-text-color: #AAB7C3; /* Texto claro para el footer */
+}
+
+/* Reset básico y estilos generales */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Para desplazamiento suave en enlaces internos */
+}
+
+body {
+    font-family: 'Lato', sans-serif; /* Nueva fuente principal */
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-color);
+    overflow-x: hidden; /* Evita scroll horizontal */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+  max-width: 150px; /* o el tamaño que necesites */
+  height: auto;     /* mantiene la proporción */
+}
+
+a {
+    color: var(--accent-color); /* Amarillo Dorado para los enlaces */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--turquoise-accent); /* Verde Turquesa en el hover (opcional) */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif; /* Nueva fuente secundaria para títulos */
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+/* Clases de utilidad */
+.section-padding {
+    padding: 80px 0;
+}
+
+.bg-light {
+    background-color: var(--light-color);
+}
+
+/* Botones */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--accent-color); /* Amarillo Dorado */
+    color: var(--primary-color); /* Texto oscuro */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:hover {
+    background-color: var(--turquoise-accent); /* Verde Turquesa en hover (opcional) */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary {
+    background-color: var(--light-color); /* Fondo claro */
+    color: var(--primary-color); /* Texto oscuro */
+    border: 1px solid var(--primary-color); /* Borde oscuro */
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color); /* Fondo oscuro en hover */
+    color: var(--light-color); /* Texto claro */
+}
+
+/* Iconos (idealmente usar Font Awesome como se mencionó) */
+/* Mantén los placeholders o reemplázalos con Font Awesome */
+
+/* --- Header --- */
+.main-header {
+    background-color: var(--primary-color); /* Azul Profundo */
+    color: var(--secondary-color); /* Blanco */
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.main-header .logo a {
+    color: var(--secondary-color); /* Blanco */
+    transition: color 0.3s ease;
+}
+
+.main-header .logo a:hover {
+    color: var(--accent-color); /* Amarillo Dorado en hover */
+}
+
+.main-nav .nav-list {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav .nav-item {
+    margin-left: 30px;
+    position: relative; /* Para el dropdown */
+}
+
+.main-nav .nav-item a {
+    color: var(--secondary-color); /* Blanco */
+    font-weight: 600;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.main-nav .nav-item a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color); /* Amarillo Dorado */
+    transition: width 0.3s ease;
+}
+
+.main-nav .nav-item a:hover::after {
+    width: 100%;
+}
+
+.main-nav .nav-item a:hover {
+    color: var(--accent-color); /* Amarillo Dorado en hover */
+}
+
+/* Dropdown Menu */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--primary-color); /* Azul Profundo */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+    transform: translateY(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.dropdown-content a {
+    color: var(--secondary-color); /* Blanco */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--accent-color); /* Amarillo Dorado en hover */
+    color: var(--primary-color); /* Azul Profundo en hover */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropbtn .arrow-down {
+    display: inline-block;
+    margin-left: 5px;
+    border: solid var(--secondary-color); /* Blanco */
+    border-width: 0 2px 2px 0;
+    padding: 3px;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropbtn .arrow-down {
+    transform: rotate(225deg); /* Gira la flecha cuando el menú está abierto */
+}
+
+/* --- Hero Banner (Index Page) --- */
+.hero-banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../img/banner.jpg') no-repeat center center/cover;
+    color: var(--secondary-color); /* Blanco */
+    text-align: center;
+    padding: 150px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh; /* Ajusta la altura del banner */
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.hero-content {
+    max-width: 800px;
+    animation: slideInUp 0.8s ease-out;
+}
+
+@keyframes slideInUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.hero-banner h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color); /* Blanco */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-banner p {
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    color: var(--gray-medium);
+}
+
+.scroll-down {
+    margin-top: 30px;
+}
+
+/* --- Team Section (Index Page) --- */
+.team-section {
+    text-align: center;
+    background-color: var(--light-color);
+}
+
+.team-section h3 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: var(--primary-color);
+    position: relative;
+}
+
+.team-section h3::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background-color: var(--accent-color); /* Amarillo Dorado */
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.member-card {
+    background-color: var(--secondary-color); /* Blanco */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.member-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.member-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 5px solid var(--accent-color); /* Amarillo Dorado */
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.member-card:hover .member-img {
+    border-color: var(--turquoise-accent); /* Verde Turquesa (opcional) */
+    transform: scale(1.05);
+}
+
+.member-card h4 {
+    font-size: 1.8rem;
+    color: var(--accent-color); /* Amarillo Dorado */
+    margin-bottom: 10px;
+}
+
+.member-card p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 25px;
+}
+
+/* --- About Section (Index Page) --- */
+.about-section {
+    text-align: center;
+    background-color: var(--light-color);
+}
+
+.about-section h3 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.about-section p {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    font-size: 1.15rem;
+    line-height: 1.8;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature-item {
+    background-color: var(--secondary-color); /* Blanco */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.feature-item i {
+    font-size: 3rem;
+    color: var(--accent-color); /* Amarillo Dorado */
+    margin-bottom: 15px;
+    display: block;
+}
+
+.feature-item h4 {
+    font-size: 1.5rem;
+    color: var(--turquoise-accent); /* Verde Turquesa (opcional) */
+    margin-bottom: 10px;
+}
+
+.feature-item p {
+    font-size: 1rem;
+    color: var(--text-color);
+    margin-bottom: 0;
+}
+
+/* --- Contact Section (Index Page) --- */
+.contact-section {
+    text-align: center;
+    background-color: var(--primary-color); /* Azul Profundo */
+    color: var(--secondary-color); /* Blanco */
+}
+
+.contact-section h3 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color); /* Blanco */
+}
+
+.contact-section p {
+    max-width: 700px;
+    margin: 0 auto 40px;
+    font-size: 1.15rem;
+    color: var(--gray-medium);
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.contact-item {
+    background-color: var(--secondary-color); /* Blanco */
+    padding: 25px 35px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.contact-item i {
+    font-size: 2rem;
+    color: var(--accent-color); /* Amarillo Dorado */
+}
+
+.contact-item p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+/* --- Footer --- */
+.main-footer {
+    background-color: var(--footer-bg-color); /* Azul Profundo (más claro) */
+    color: var(--footer-text-color);
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.main-footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.main-footer .social-links {
+    margin-top: 15px;
+}
+
+.main-footer .social-icon {
+    color: var(--footer-text-color);
+    font-size: 1.5rem;
+    margin: 0 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.main-footer .social-icon:hover {
+    color: var(--accent-color); /* Amarillo Dorado en hover */
+    transform: translateY(-3px);
+}
+     
+/* --- Animaciones al Scroll (aplicadas por JS) --- */
+/* Mantén las animaciones existentes, son buenas */
+
+/* --- Responsive Design --- */
+/* Ajusta los tamaños de fuente y padding para móviles si los nuevos valores son demasiado grandes */
+@media (max-width: 992px) {
+    .hero-banner h2 {
+        font-size: 3.5rem;
+    }
+
+    .hero-banner p {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-banner {
+        padding: 100px 20px;
+    }
+
+    .hero-banner h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero-banner p {
+        font-size: 1rem;
+    }
+
+    .section-padding {
+        padding: 60px 0;
+    }
+
+    .team-grid,
+    .features-grid,
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .member-card,
+    .feature-item,
+    .contact-item {
+        padding: 25px;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .projects-table {
+        font-size: 0.9em;
+        overflow-x: auto;
+        /* Permite scroll en tablas en móviles */
+        display: block;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header .logo {
+        font-size: 1.5rem;
+    }
+
+    .hero-banner h2 {
+        font-size: 2rem;
+    }
+
+    .hero-banner p {
+        font-size: 0.9rem;
+    }
+
+    .member-card h4 {
+        font-size: 1.5rem;
+    }
+
+    .member-card p {
+        font-size: 1rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+.fade-in-up { animation: fadeInUp 0.8s ease-out; }
+.fade-in-left { animation: fadeInLeft 0.8s ease-out; }
+.fade-in-right { animation: fadeInRight 0.8s ease-out; }
